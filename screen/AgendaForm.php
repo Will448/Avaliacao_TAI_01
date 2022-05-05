@@ -53,7 +53,7 @@ include "../database/bd_agenda.php";
         <input type="text" name="lugar" value="<?php echo !empty($result->lugar) ? $result->lugar : "" ?>" /><br>
 
         <label>descriçao</label>
-        <input type="text" name="descriçao" value="<?php echo !empty($result->descriçao) ? $result->descriçao : "" ?>" /><br>
+        <input type="text" name="descricao" value="<?php echo !empty($result->descricao) ? $result->descricao : "" ?>" /><br>
 
         <label>Id do convidado</label>
         <input type="text" name="convidado_id" value="<?php echo !empty($result->convidado_id) ? $result->convidado_id : "" ?>" /><br>

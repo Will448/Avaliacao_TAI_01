@@ -60,8 +60,8 @@ include "../database/bd_agenda.php";
             <td>" . $item['lugar'] . "</td>
             <td>" . $item['descricao'] . "</td>
             <td>" . $item['convidado_id'] . "</td>
-            <td><a href='./usuarioForm.php?id_agenda=" . $item['id_agenda'] . "'>Editar</a></td>
-            <td><a href='./usuarioList.php?id_agenda=" . $item['id_agenda'] . "'
+            <td><a href='./AgendaForm.php?id_agenda=" . $item['id_agenda'] . "'>Editar</a></td>
+            <td><a href='./AgendaList.php?id_agenda=" . $item['id_agenda'] . "'
                    onclick=\"return confirm('Deseja realmente remover o registro permanentemente?') \" >Deletar</a></td>
         </tr>";
     }
