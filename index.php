@@ -10,6 +10,6 @@
 
 <body>
     <h2>CRUD Usuário</h2>
-    <a href="./pagina/usuarioList.php">Ver</a>
+    <a href="./screen/AgendaList.php">Ver</a>
 </body>
 </html>

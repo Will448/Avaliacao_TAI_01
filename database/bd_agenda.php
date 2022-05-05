@@ -25,7 +25,7 @@ class BD_agenda
     public function select()
     {
         $conn = $this->conn();
-        $st = $conn->prepare("SELECT * FROM agenda ORDER BY id DESC");
+        $st = $conn->prepare("SELECT * FROM agenda ORDER BY id_agenda DESC");
         $st->execute();
 
         return $st;
@@ -73,7 +73,7 @@ class BD_agenda
     public function buscar($id)
     {
         $conn = $this->conn();
-        $sql = "SELECT * FROM usuario WHERE id = ?";
+        $sql = "SELECT * FROM agenda WHERE id_agenda = ?";
 
         $st = $conn->prepare($sql);
         $arrayDados = [$id];
@@ -85,10 +85,10 @@ class BD_agenda
     public function pesquisar($dados)
     {
         $conn = $this->conn();
-        $sql = "SELECT * FROM usuario WHERE nome LIKE ?;";
+        $sql = "SELECT * FROM agenda WHERE titulo LIKE ?;";
 
         $st = $conn->prepare($sql);
-        $arrayDados = ["%" . $dados["nome"] . "%"];
+        $arrayDados = ["%" . $dados["titulo"] . "%"];
         $st->execute($arrayDados);
 
         return $st;

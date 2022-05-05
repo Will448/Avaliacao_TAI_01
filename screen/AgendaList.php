@@ -19,7 +19,7 @@ include "../database/bd_agenda.php";
     </form>
     <a href="./AgendaForm.php">Cadastrar</a> <br>
     <?php
-    $objBD = new BD();
+    $objBD = new BD_agenda();
     $objBD->conn();
 
     if (!empty($_POST['titulo'])) {
