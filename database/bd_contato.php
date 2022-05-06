@@ -1,10 +1,10 @@
 <?php
 
-class BD
+class BD_contato
 {
 
     private $host = "localhost";
-    private $dbname = "db_aula_tai";
+    private $dbname = "bd_avaliacao_tai_01";
     private $port = 3306;
     private $usuario = "root";
     private $senha = "";
@@ -25,7 +25,7 @@ class BD
     public function select()
     {
         $conn = $this->conn();
-        $st = $conn->prepare("SELECT * FROM usuario");
+        $st = $conn->prepare("SELECT * FROM contato");
         $st->execute();
 
         return $st;
@@ -34,7 +34,7 @@ class BD
     public function inserir($dados)
     {
         $conn = $this->conn();
-        $sql = "INSERT INTO usuario (nome,telefone, cpf) value (?, ?, ?)";
+        $sql = "INSERT INTO contato (nome,telefone, cpf) value (?, ?, ?)";
 
         $st = $conn->prepare($sql);
         $arrayDados = [$dados['nome'], $dados['telefone'], $dados['cpf']];

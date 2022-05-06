@@ -25,7 +25,7 @@ class BD_agenda
     public function select()
     {
         $conn = $this->conn();
-        $st = $conn->prepare("SELECT * FROM agenda ORDER BY id_agenda DESC");
+        $st = $conn->prepare("SELECT * FROM agenda ORDER BY id_agenda ASC");
         $st->execute();
 
         return $st;
@@ -47,8 +47,7 @@ class BD_agenda
     public function update($dados)
     {
         $conn = $this->conn();
-        $sql = "UPDATE agenda SET titulo = ?, data_inicio= ?,
-                     hora_inicio = ?, data_fim = ?, hora_fim = ?, lugar = ?, descricao = ?, convidado_id = ?, WHERE id_agenda = ?";
+        $sql = "UPDATE agenda SET titulo = ?, data_inicio = ?, hora_inicio = ?, data_fim = ?, hora_fim = ?, lugar = ?, descricao = ?, convidado_id = ?, WHERE id_agenda = ?";
 
         $st = $conn->prepare($sql);
         $arrayDados =[$dados['titulo'], $dados['data_inicio'], $dados['hora_inicio'], $dados['data_fim'], $dados['hora_fim'], 
