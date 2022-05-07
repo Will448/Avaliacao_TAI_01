@@ -16,7 +16,7 @@ include "../database/bd_agenda.php";
     $objBD = new BD_agenda();
     $objBD->conn();
 
-    if (!empty($_GET['id'])) {
+    if (!empty($_GET['id_agenda'])) {
         $result = $objBD->buscar($_GET['id_agenda']);
         //select * from usuario where id = ?
     }
@@ -56,8 +56,7 @@ include "../database/bd_agenda.php";
         <input type="text" name="descricao" value="<?php echo !empty($result->descricao) ? $result->descricao : "" ?>" /><br>
 
         <label>Id do convidado</label>
-        <input type="text" 
-        ="convidado_id" value="<?php echo !empty($result->convidado_id) ? $result->convidado_id : "" ?>" /><br>
+        <input type="text" name="convidado_id" value="<?php echo !empty($result->convidado_id) ? $result->convidado_id : "" ?>" /><br>
 
         <input type="submit" value="Salvar" />
     </form>

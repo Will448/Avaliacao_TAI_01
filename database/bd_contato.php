@@ -25,7 +25,7 @@ class BD_contato
     public function select()
     {
         $conn = $this->conn();
-        $st = $conn->prepare("SELECT * FROM contato");
+        $st = $conn->prepare("SELECT * FROM contato ORDER BY id_contato ASC");
         $st->execute();
 
         return $st;
@@ -34,10 +34,11 @@ class BD_contato
     public function inserir($dados)
     {
         $conn = $this->conn();
-        $sql = "INSERT INTO contato (nome,telefone, cpf) value (?, ?, ?)";
+        $sql = "INSERT INTO contato (nome,sobrenome, telefone1, tipo_telefone1, telefone2,tipo_telefone2,email) value (?, ?, ?, ?, ?, ?, ? )";
 
         $st = $conn->prepare($sql);
-        $arrayDados = [$dados['nome'], $dados['telefone'], $dados['cpf']];
+        $arrayDados = [$dados['nome'], $dados['sobrenome'], $dados['telefone1'], $dados['tipo_telefone1'], $dados['telefone2'],
+        $dados['tipo_telefone2'],$dados['email']];
         $st->execute($arrayDados);
 
         return $st;
@@ -46,14 +47,11 @@ class BD_contato
     public function update($dados)
     {
         $conn = $this->conn();
-        $sql = "UPDATE usuario SET nome = ?, telefone= ?,
-                     cpf= ? WHERE id = ?";
+        $sql = "UPDATE contato SET nome= ?, sobrenome= ?, telefone1= ?, tipo_telefone1= ?, telefone2= ?,tipo_telefone2= ?,email= ? WHERE id_contato = ?";
 
         $st = $conn->prepare($sql);
-        $arrayDados = [
-            $dados['nome'], $dados['telefone'],
-            $dados['cpf'], $dados['id']
-        ];
+        $arrayDados = [$dados['nome'], $dados['sobrenome'], $dados['telefone1'], $dados['tipo_telefone1'], $dados['telefone2'],
+        $dados['tipo_telefone2'],$dados['email'], $dados['id_contato']];
         $st->execute($arrayDados);
 
         return $st;
@@ -62,7 +60,7 @@ class BD_contato
     public function remover($id)
     {
         $conn = $this->conn();
-        $sql = "DELETE FROM usuario WHERE id = ?";
+        $sql = "DELETE FROM contato WHERE id_contato = ?";
 
         $st = $conn->prepare($sql);
         $arrayDados = [$id];
@@ -74,7 +72,7 @@ class BD_contato
     public function buscar($id)
     {
         $conn = $this->conn();
-        $sql = "SELECT * FROM usuario WHERE id = ?";
+        $sql = "SELECT * FROM contato WHERE id_contato = ?";
 
         $st = $conn->prepare($sql);
         $arrayDados = [$id];
@@ -86,7 +84,7 @@ class BD_contato
     public function pesquisar($dados)
     {
         $conn = $this->conn();
-        $sql = "SELECT * FROM usuario WHERE nome LIKE ?;";
+        $sql = "SELECT * FROM contato WHERE nome LIKE ?;";
 
         $st = $conn->prepare($sql);
         $arrayDados = ["%" . $dados["nome"] . "%"];

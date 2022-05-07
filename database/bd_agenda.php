@@ -51,7 +51,7 @@ class BD_agenda
 
         $st = $conn->prepare($sql);
         $arrayDados =[$dados['titulo'], $dados['data_inicio'], $dados['hora_inicio'], $dados['data_fim'], $dados['hora_fim'], 
-        $dados['lugar'], $dados['descricao'], $dados['convidado_id']];
+        $dados['lugar'], $dados['descricao'], $dados['convidado_id'], $dados['id_agenda']];
         $st->execute($arrayDados);
 
         return $st;

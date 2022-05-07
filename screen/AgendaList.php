@@ -14,7 +14,7 @@ include "../database/bd_agenda.php";
 <body>
     <h2>Listagem Clientes</h2>
     <form action="./AgendaList.php" method="post">
-        <input type="search" name="nome" placeholder="Pesquisar nome">
+        <input type="search" name="titulo" placeholder="Pesquisar nome">
         <input type="submit" value="Pesquisar">
     </form>
     <a href="./AgendaForm.php">Cadastrar</a> <br>
@@ -52,7 +52,7 @@ include "../database/bd_agenda.php";
         echo "
         <tr>
             <td>" . $item['id_agenda'] . "</td>
-            <tr><td>" . $item['titulo'] . "</td></tr>
+            <td>" . $item['titulo'] . "</td>
             <td>" . $item['data_inicio'] . "</td>
             <td>" . $item['hora_inicio'] . "</td>
             <td>" . $item['data_fim'] . "</td>
