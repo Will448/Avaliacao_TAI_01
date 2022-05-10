@@ -6,18 +6,53 @@ include "../database/bd_contato.php";
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" name="viewport" content="width=device-width">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>ListaContato</title>
 </head>
 
 <body>
-    <h2>Listagem de contatos</h2>
+<nav class="navbar navbar-dark bg-primary">
+  <a class="navbar-brand" href="../index.php">Sis Agenda</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="../index.php">Início <span class="sr-only">(Página atual)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../screens/listagemagenda.php">Minha Agenda</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="../screens/listagemcontato.php">Meus Contatos</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+    <br>
+    <h2 class="display-5">Listagem de contatos</h2>
+    <br>
     <form action="./ContatoList.php" method="post">
-        <input type="search" name="nome" placeholder="Pesquisar nome">
-        <input type="submit" value="Pesquisar">
-    </form>
-    <a href="./ContatoForm.php">Cadastrar</a> <br>
+
+    <div class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" name="nome" placeholder="Pesquisar" href="./ContatoList.php" aria-label="Pesquisar">
+     <div class="col-auto my-1">
+      <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+        <option selected>Tipo</option>
+        <option value="1">Tipo</option>
+        <option value="2">Nome</option>
+      </select>
+     </div>
+  </form>
+      <button type="submit" class="btn btn-outline-success" href="./ContatoList.php"> <i class="fa-solid fa-magnifying-glass plus"></i> Buscar</button> <br>
+        <a type="button" class="btn btn-info" href="./ContatoForm.php"> <i class="fa-solid fa-plus plus"></i> Cadastrar</a>
+  </div>
+    <br>
     <?php
 
     $objBD = new BD_contato();
@@ -34,21 +69,24 @@ include "../database/bd_contato.php";
         $objBD->remover($_GET['id_contato']);
         header("location: ContatoList.php");
     }
-
-    echo "<table>
-                <tr>
-                    <th>ID</th>
-                    <th>nome</th>
-                    <th>sobrenome</th>
-                    <th>telefone1</th>
-                    <th>tipo_telefone1</th>
-                    <th>telefone2</th>
-                    <th>tipo_telefone2</th>
-                    <th>email</th>
-                    <th>Editar</th>
-                    <th>Deletar</th>
-                </tr>
-            ";
+?>
+    echo <table class="table table-striped">
+  <thead>
+        <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Sobrenome</th>
+      <th scope="col">Telefone 1</th>
+      <th scope="col">Tipo Telefone 1</th>
+      <th scope="col">Telefone 2</th>
+      <th scope="col">Tipo Telefone 2</th>
+      <th scope="col">Email</th>
+      <th scope="col">Ação</th>
+      <th scope="col">Ação</th>
+        </tr>
+    </thead>
+         
+            <?php
     foreach ($result as $item) {
         echo "
         <tr>
@@ -63,7 +101,7 @@ include "../database/bd_contato.php";
             <td><br></td>
             <td><a href='./ContatoForm.php?id_contato=" . $item['id_contato'] . "'>Editar</a></td>
             <td><a href='./ContatoList.php?id_contato=" . $item['id_contato'] . "'
-                   onclick=\"return confirm('Deseja realmente remover o registro permanentemente?') \" >Deletar</a></td>
+                onclick=\"return confirm('Deseja realmente remover o registro permanentemente?') \" >Deletar</a></td>
         </tr>";
     }
     echo "</table>";

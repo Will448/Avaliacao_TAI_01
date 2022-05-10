@@ -36,6 +36,9 @@ class BD_agenda
         $conn = $this->conn();
         $sql = "INSERT INTO agenda (titulo, data_inicio, hora_inicio, data_fim, hora_fim, lugar, descricao, convidado_id) value (?, ?, ?, ?, ?, ?, ?,?)";
 
+        var_dump($sql);
+        var_dump($dados);
+        //exit;
         $st = $conn->prepare($sql);
         $arrayDados = [$dados['titulo'], $dados['data_inicio'], $dados['hora_inicio'], $dados['data_fim'], $dados['hora_fim'],
         $dados['lugar'], $dados['descricao'], $dados['convidado_id']];
@@ -47,8 +50,12 @@ class BD_agenda
     public function update($dados)
     {
         $conn = $this->conn();
-        $sql = "UPDATE agenda SET titulo = ?, data_inicio = ?, hora_inicio = ?, data_fim = ?, hora_fim = ?, lugar = ?, descricao = ?, convidado_id = ?, WHERE id_agenda = ?";
-
+        $sql = "UPDATE agenda SET titulo = ?, data_inicio = ?, hora_inicio = ?, data_fim = ?, hora_fim = ?, lugar = ?, descricao = ?, convidado_id = ? WHERE id_agenda = ?";
+/*
+        var_dump($sql);
+var_dump($dados);
+//exit;
+*/
         $st = $conn->prepare($sql);
         $arrayDados =[$dados['titulo'], $dados['data_inicio'], $dados['hora_inicio'], $dados['data_fim'], $dados['hora_fim'], 
         $dados['lugar'], $dados['descricao'], $dados['convidado_id'], $dados['id_agenda']];
@@ -73,6 +80,19 @@ class BD_agenda
     {
         $conn = $this->conn();
         $sql = "SELECT * FROM agenda WHERE id_agenda = ?";
+
+        $st = $conn->prepare($sql);
+        $arrayDados = [$id];
+        $st->execute($arrayDados);
+
+        return $st->fetchObject();
+    }
+
+    
+    public function buscarContato($id)
+    {
+        $conn = $this->conn();
+        $sql = "SELECT * FROM contato WHERE id_contato = ?";
 
         $st = $conn->prepare($sql);
         $arrayDados = [$id];
