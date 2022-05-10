@@ -11,30 +11,32 @@ include "../database/bd_agenda.php";
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
-    <title>Document</title>
+    <title>AgendaLista</title>
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-dark bg-primary">
   <a class="navbar-brand" href="../index.php">Sis Agenda</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
-  </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" href="../index.php">Início <span class="sr-only">(Página atual)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../screens/listagemagenda.php">Minha Agenda</a>
+        <a class="nav-link" href="../screen/AgendaList.php">Minha Agenda</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../screens/listagemcontato.php">Meus Contatos</a>
+        <a class="nav-link" href="../screen/ContatoList.php">Meus Contatos</a>
       </li>
     </ul>
   </div>
 </nav>
-    <h2>Listagem de agendas</h2>
+</button>
+<br>
+       <h2 class="display-5" style= "text-align: center">Listagem das Agendas</h2>
+    <br>
     <form action="./AgendaList.php" method="post">
 
     <div class="form-inline my-2 my-lg-0">
@@ -69,8 +71,8 @@ include "../database/bd_agenda.php";
         header("location: ./AgendaList.php");
     }
 ?>
-    echo
-    <table class="table table-hover"> 
+    <br>
+<table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -101,14 +103,24 @@ include "../database/bd_agenda.php";
             <td>" . $item['lugar'] . "</td>
             <td>" . $item['descricao'] . "</td>
             <td>" . $item['convidado_id'] . "</td>
-            <td><a href='./AgendaForm.php?id_agenda=" . $item['id_agenda'] . "'>Editar</a></td>
-            <td><a href='./AgendaList.php?id_agenda=" . $item['id_agenda'] . "'onclick=\"return confirm('Deseja realmente remover o registro permanentemente?) \" >Deletar</a></td>
+            <td><a href='./AgendaForm.php?id_agenda=" . $item['id_agenda'] . "'><i class='fa-solid fa-pen-to-square orange'></i></a></td>
+            <td><a href='./AgendaList.php?id_agenda=" . $item['id_agenda'] . "'
+              onclick=\"return confirm('Deseja realmente remover o registro permanentemente?') \" ><i class='fa-solid fa-trash red'></i></a></td>
         </tr>";
     }
     echo "</table>";
     ?>
 
-    <a href="../index.php">Voltar</a>
+<a href="../index.php"><button type="button" class="btn btn-info" >Voltar   <i class="fa-solid fa-circle-arrow-left"></i></button></a>
+
+    <body>
+       <style>
+body {
+  margin: 1px 1px 1px 3px;
+  background-color: #e6f7ff;
+}
+</style>
+
 </body>
 
 </html>

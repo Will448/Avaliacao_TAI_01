@@ -116,7 +116,8 @@ include "../database/bd_contato.php";
     <body>
        <style>
 body {
-    background-color: #e6f7ff;
+  margin: 1px 1px 1px 3px;
+  background-color: #e6f7ff;
 }
 
 </style>

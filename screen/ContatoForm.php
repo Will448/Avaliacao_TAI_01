@@ -118,6 +118,7 @@ if (!empty($_POST)) {
 
 <style>
 body {
+  margin: 1px 1px 1px 3px;
     background-color: #e6f7ff;
 }
 

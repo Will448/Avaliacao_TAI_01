@@ -10,7 +10,7 @@ include "../database/bd_agenda.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>Document</title>
+    <title>AgendaFormulario</title>
 </head>
 
 <body>
@@ -39,73 +39,80 @@ include "../database/bd_agenda.php";
 <a class="navbar-brand" href="../index.php">Sis Agenda</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
     <span class="navbar-toggler-icon"></span>
-  </button>
+  
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" href="../index.php">Início <span class="sr-only">(Página atual)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../screens/listagemagenda.php">Minha Agenda</a>
+        <a class="nav-link" href="../screen/AgendaList.php">Minha Agenda</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="../screens/listagemcontato.php">Meus Contatos</a>
+        <a class="nav-link" href="../screen/ContatoList.php">Meus Contatos</a>
       </li>
     </ul>
   </div>
 </nav>
-    <h2>Formulário da Agenda</h2>
+</button>
+<br>
+   <h1 class="display-5" style= "text-align: center">Formulário da agenda</h1>
+  <br>
     <form action="./AgendaForm.php" method="post">
     <input type="hidden" name="id_agenda" value="<?php echo !empty($result->id_agenda) ? $result->id_agenda : "" ?>" /><br>
     <div>
-    <label for="titulo">Título</label>
+    <label for="titulo" style="color: rgb(255, 136, 0)"><font size="4">Título</font></label>
     <input type="text" class="form-control" name="titulo" placeholder="Reunião..." required value="<?php echo !empty($result->titulo) ? $result->titulo : "" ?>"/>
         </div>
 
         <div class="row">
     <div class="col">
-      <label for="formGroupExampleInput">Data Inicio </label>
+      <label for="formGroupExampleInput" style="color: rgb(255, 136, 0)"><font size="4">Data de Inicio</font> </label>
       <input type="date" class="form-control" name="data_inicio" placeholder="mm/dd/yyyy" value="<?php echo !empty($result->data_inicio) ? $result->data_inicio : "" ?>" />
     </div>
     <div class="col">
-      <label for="formGroupExampleInput">Hora Inicio</label>
+      <label for="formGroupExampleInput" style="color: rgb(255, 136, 0)"><font size="4">Hora de Inicio</font></label>
       <input type="time" class="form-control" name="hora_inicio" placeholder="--:-- --" value="<?php echo !empty($result->hora_inicio) ? $result->hora_inicio : "" ?>" />
     </div>
   </div>
   <div class="row">
     <div class="col">
-      <label for="formGroupExampleInput">Data Fim </label>
+      <label for="formGroupExampleInput" style="color: rgb(255, 136, 0)"><font size="4">Data Fim</font> </label>
       <input type="date" class="form-control"  name="data_fim" placeholder="mm/dd/yyyy"value="<?php echo !empty($result->data_fim) ? $result->data_fim : "" ?>" />
     </div>
     <div class="col">
-      <label for="formGroupExampleInput">Hora Fim</label>
+      <label for="formGroupExampleInput"style="color: rgb(255, 136, 0)"><font size="4">Hora do fim</font></label>
       <input type="time" class="form-control" name="hora_fim" placeholder="--:-- --" value="<?php echo !empty($result->hora_fim) ? $result->hora_fim : "" ?>" />
     </div>
   </div>
   <div>
   <div>
-    <label for="formGroupExampleInput">Local</label>
+    <label for="formGroupExampleInput" style="color: rgb(255, 136, 0)"><font size="4">Local</font></label>
     <input type="text" name="lugar" value="<?php echo !empty($result->lugar) ? $result->lugar : "" ?>"/>
   </div>
   <div>
-    <label for="validationTextarea">Descrição</label>
+    <label for="validationTextarea" style="color: rgb(255, 136, 0)"><font size="4">Ponto de referência</font></label>
     <textarea class="form-control" id="validationTextarea" placeholder="Ponto de referência" name="descricao" value="<?php echo !empty($result->descricao) ? $result->descricao : "" ?>">
 </textarea></br>
   </div>
   <div>
     <div>
-      <label for="formGroupExampleInput">Contato Convidado</label>
-      <label>Id do convidado</label>
+      <label for="formGroupExampleInput"style="color: rgb(255, 136, 0)"><font size="4">Id do convidado</font></label>
         <input type="text" name="convidado_id" value="<?php echo !empty($result->convidado_id) ? $result->convidado_id : "" ?>" /><br>
-        <select name="convidado">
-            
-            <option></option>
     </div>
     </div>
 </select>
-<button type= "submit" class="btn btn-success" value="Salvar"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>
+<button type= "submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>    
     </form>
-    <button href="./AgendaList.php" > Voltar </button>
+    <a href="./ContatoList.php"><button type="button" class="btn btn-info" >Voltar   <i class="fa-solid fa-circle-arrow-left"></i></button></a>
+  
+    <style>
+body {
+  margin: 1px 1px 1px 3px;
+  background-color: #e6f7ff;
+}
+
+</style>
 </body>
 
 </html>
