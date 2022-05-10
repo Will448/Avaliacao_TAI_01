@@ -35,7 +35,7 @@ include "../database/bd_contato.php";
   </div>
 </nav>
     <br>
-    <h2 class="display-5">Listagem de contatos</h2>
+    <h2 class="display-5" style= "text-align: center">Listagem dos contatos</h2>
     <br>
     <form action="./ContatoList.php" method="post">
 
@@ -70,7 +70,8 @@ include "../database/bd_contato.php";
         header("location: ContatoList.php");
     }
 ?>
-    echo <table class="table table-striped">
+<br>
+     <table class="table table-striped">
   <thead>
         <tr>
       <th scope="col">#</th>
@@ -81,8 +82,9 @@ include "../database/bd_contato.php";
       <th scope="col">Telefone 2</th>
       <th scope="col">Tipo Telefone 2</th>
       <th scope="col">Email</th>
-      <th scope="col">Ação</th>
-      <th scope="col">Ação</th>
+      <th> </th>
+      <th scope="col">Editar</th>
+      <th scope="col">Deletar</th>
         </tr>
     </thead>
          
@@ -99,15 +101,25 @@ include "../database/bd_contato.php";
             <td>" . $item['tipo_telefone2'] . "</td>
             <td>" . $item['email'] . "</td>
             <td><br></td>
-            <td><a href='./ContatoForm.php?id_contato=" . $item['id_contato'] . "'>Editar</a></td>
+
+            <td><a href='./ContatoForm.php?id_contato=" . $item['id_contato'] . "'><i class='fa-solid fa-pen-to-square orange'></i></a></td>
+            
             <td><a href='./ContatoList.php?id_contato=" . $item['id_contato'] . "'
-                onclick=\"return confirm('Deseja realmente remover o registro permanentemente?') \" >Deletar</a></td>
+                onclick=\"return confirm('Deseja realmente remover o registro permanentemente?') \" ><i class='fa-solid fa-trash red'></i></a></td>
         </tr>";
     }
     echo "</table>";
     ?>
 
-    <a href="../index.php">Voltar</a>
+ <a href="../index.php"><button type="button" class="btn btn-info" >Voltar   <i class="fa-solid fa-circle-arrow-left"></i></button></a>
+
+    <body>
+       <style>
+body {
+    background-color: #e6f7ff;
+}
+
+</style>
 </body>
 
 </html>

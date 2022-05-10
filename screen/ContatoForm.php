@@ -114,7 +114,7 @@ if (!empty($_POST)) {
 
 </form>
 <br>
-<a href="../index.php"><button type="button" class="btn btn-info" >Voltar   <i class="fa-solid fa-circle-arrow-left"></i></button></a>
+<a href="./ContatoList.php"><button type="button" class="btn btn-info" >Voltar   <i class="fa-solid fa-circle-arrow-left"></i></button></a>
 
 <style>
 body {

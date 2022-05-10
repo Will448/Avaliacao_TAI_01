@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Bootstrap</title>
+  <title>SisAgenda</title>
   
   <link href="style.css" rel="stylesheet" type="text/css" />
  
@@ -27,17 +27,19 @@
         <a class="nav-link" href="../index.php">Início <span class="sr-only">(Página atual)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="screens/listagemagenda.php">Minha Agenda</a>
+        <a class="nav-link" href="./screen/AgendaList.php">Minha Agenda</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="screens/listagemcontato.php">Meus Contatos</a>
+        <a class="nav-link" href="./screen/ContatoList.php">Meus Contatos</a>
       </li>
     </ul>
   </div>
 </nav>
-    
-  <h1>Telas</h1>
-    
+
+<br>
+ <h1 class="display-4"style= "text-align: center">Telas</h1>
+    <br>
+
  <div class="row">
   <div class="col-sm-6">
     <div class="card">
@@ -49,7 +51,7 @@
          </span>
        <h5 class="card-title">Meus Contatos</h5>
         <p class="card-text">Cadastre e Gerencie todos os seus contatos</p>
-        <a href="screens/listagemcontato.php" class="btn btn-primary">Ver</a>
+        <button><a href="./screen/ContatoList.php" class="btn btn-info">Ver</a></button>
         </div>
       </div>
   </div>
@@ -63,7 +65,7 @@
          </span>
        <h5 class="card-title">Minha Agenda</h5>
         <p class="card-text">Cadastre e Gerencie todos os seus compromissos na sua Agenda</p>
-        <a href="screens/listagemagenda.php" class="btn btn-primary">Ver</a>
+        <button><a href="./screen/AgendaList.php" class="btn btn-info">Ver</a></button>
         </div>
       </div>
     </div>
@@ -74,9 +76,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" integrity="sha512-6PM0qYu5KExuNcKt5bURAoT6KCThUmHRewN3zUFNaoI6Di7XJPTMoT6K0nsagZKk2OB4L7E3q1uQKHNHd4stIQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="https://kit.fontawesome.com/243aaa6612.js" crossorigin="anonymous"></script>
 
+  <style>
+body {
+    background-color: #cefcec;
+}
+</style>
 
-<a href="./screen/ContatoList.php">Visualizar a listagem dos Contatos</a>
-<br>
-<a href="./screen/AgendaList.php">Visualizar a listagem da agenda</a>
 </body>
 </html>
