@@ -74,7 +74,7 @@ include "../database/bd_contato.php";
      <table class="table table-striped">
   <thead>
         <tr>
-      <th scope="col">#</th>
+      <th scope="col">ID</th>
       <th scope="col">Nome</th>
       <th scope="col">Sobrenome</th>
       <th scope="col">Telefone 1</th>

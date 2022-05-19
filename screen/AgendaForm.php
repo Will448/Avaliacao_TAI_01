@@ -104,7 +104,7 @@ include "../database/bd_agenda.php";
 </select>
 <button type= "submit" class="btn btn-success"><i class="fa-solid fa-floppy-disk"></i> Salvar</button>    
     </form>
-    <a href="./ContatoList.php"><button type="button" class="btn btn-info" >Voltar   <i class="fa-solid fa-circle-arrow-left"></i></button></a>
+    <a href="./AgendaList.php"><button type="button" class="btn btn-info" >Voltar   <i class="fa-solid fa-circle-arrow-left"></i></button></a>
   
     <style>
 body {
