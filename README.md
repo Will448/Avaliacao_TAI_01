@@ -1,6 +1,6 @@
 # Avaliacao_TAI_01-Tópicos avançado em informática
 Escola: IFSC-câmpus Xanxerê                         
-Professor: Jackdson Meires Dantas Canuto                      
+Professor: Jackson Meires Dantas Canuto                      
 Turma: Informática 3                   
 Estudantes: Willian Bongiovanni, Julia Pavan e Maria Dal Magro            
 
